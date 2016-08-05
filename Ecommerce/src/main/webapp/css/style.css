@@ -1,0 +1,41 @@
+#headerTag{
+	background: rgb(69, 103, 130);
+}
+
+#footerTag{
+	background: rgba(13, 68, 115, 0.86);
+}
+
+#backgroundImg{
+	background: url(761685203-website-e-commerce-app-icon-computer.jpg)
+}
+
+#logo{
+	padding: 20px 20px;
+	opacity: 0.8;
+	float:left;
+	width:200px;
+	height:200px;
+}
+
+#divTwo{
+	height:25px; 
+	margin: 20px auto;
+	padding:10px auto; 
+}
+
+#dropdownMenu1{
+	height:25px;
+}
+
+.search{
+	float:right;
+	padding:
+}
+
+
+#loginDiv{
+	margin:20px auto;
+}
+
+

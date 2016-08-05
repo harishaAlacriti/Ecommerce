@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Registration page</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div id="header"></div>
+	
+		<div class="jumbotron col-md-12" id="registrationDiv">
+			<!-- <h1 ><small>Registration</small></h1> -->
+			
+			<form class="col-md-8" action="http://localhost:8080/Ecommerce/rest/registration" method="POST" id="registerationForm" onsubmit="return validate();">
+				<legend>Registration</legend>
+				  <fieldset class="form-group">
+	    				<label for="exampleInputFirstName">First Name</label>
+	    				<input type="text" class="form-control" id="exampleInputFirstName" name="exampleInputFirstName" placeholder="Enter First Name">
+					<p id="firstName" style="color:red; font-size:12px;" hidden="hidden">Please fill firstName field!</p>
+	 			</fieldset>
+				<fieldset class="form-group">
+	    				<label for="exampleInputLastName">Last Name</label>
+	    				<input type="text" class="form-control" id="exampleInputLastName" name="exampleInputLastName" placeholder="Enter Last Name">
+					<p id="lastName" style="color:red; font-size:12px;" hidden="hidden">Please fill lastName field!</p>
+	 			</fieldset>
+	  			<fieldset class="form-group">
+	    				<label for="exampleInputEmail">Email Address</label>
+	    				<input type="email" class="form-control" id="exampleInputEmail" name="exampleInputEmail" placeholder="Enter Email">
+					<p id="email" style="color:red; font-size:12px;" hidden="hidden">Please fill email field!</p>
+	 			</fieldset>
+				<fieldset class="form-group">
+	    				<label for="exampleInputPassword">Password</label>
+	    				<input type="password" class="form-control" id="exampleInputPassword" name="exampleInputPassword" placeholder="Password">
+					<p id="password" style="color:red;font-size:12px;" hidden="hidden">Please fill password field!</p>
+	  			</fieldset>
+				<fieldset class="form-group">
+	    				<label for="exampleInputConfirmPassword">Confirm Password</label>
+	    				<input type="password" class="form-control" id="exampleInputConfirmPassword" name="exampleInputConfirmPassword" placeholder="Re-enter Password">
+					<p id="confirmPassword" style="color:red; font-size:12px;" hidden="hidden">Please fill confirm password field!</p>
+	  			</fieldset>
+				<fieldset class="form-group">
+	    				<label for="exampleInputCity">City</label>
+	    				<input type="text" class="form-control" id="exampleInputCity" name="exampleInputCity" placeholder="Enter City Name">
+					<p id="city" style="color:red; font-size:12px;" hidden="hidden">Please fill city field!</p>
+	 			</fieldset>
+				<fieldset class="form-group">
+	    				<label for="exampleInputPincode">Pincode</label>
+	    				<input type="text" class="form-control" id="exampleInputPincode" name="exampleInputPincode" placeholder="Enter Pincode">
+					<p id="pincode" style="color:red; font-size:12px;" hidden="hidden">Please fill pincode field!</p>
+	 			</fieldset>
+				<fieldset class="form-group">
+	    				<label for="exampleInputMobileNumber">Mobile Number</label>
+	    				<input type="text" class="form-control" id="exampleInputMobileNumber" name="exampleInputMobileNumber" placeholder="Enter Mobile Number">
+					<p id="mobileNumber" style="color:red; font-size:12px;" hidden="hidden">Please fill mobile number field!</p>
+	 			</fieldset>
+	 			<div id="wrapper" style="margin-top: 20px;"><input id="fileUpload" name="fileUpload" multiple="multiple" type="file"/> 
+					<div id="image-holder" name="image-holder"></div>
+				</div>
+
+				 <button type="submit" class="btn btn-primary" style="margin:0px 5px" id="submit">Submit</button>
+				 <button type="reset" class="btn btn-primary" style="margin:0px 5px">Reset</button>
+			</form>
+		</div>
+		<div class="clearfix"></div>
+		
+		<div id="footer"></div>
+	</div>
+	
+	
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="js/RegistrationValidation.js"></script>
+	<script>
+		$(function(){
+			$("#header").load("header.html");
+			$("#footer").load("footer.html");
+		});
+	
+		$(document).ready(function() {
+		        $("#fileUpload").on('change', function() {
+		          //Get count of selected files
+		          var countFiles = $(this)[0].files.length;
+		          var imgPath = $(this)[0].value;
+		          var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+		          var image_holder = $("#image-holder");
+		          image_holder.empty();
+		          if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+		            if (typeof(FileReader) != "undefined") {
+		              //loop for each file selected for uploaded.
+		              for (var i = 0; i < countFiles; i++) 
+		              {
+		                var reader = new FileReader();
+		                reader.onload = function(e) {
+		                  $("<img />", {
+		                    "src": e.target.result,
+		                    "class": "thumb-image"
+		                  }).appendTo(image_holder);
+		                }
+		                image_holder.show();
+		                reader.readAsDataURL($(this)[0].files[i]);
+		              }
+		            } else {
+		              alert("This browser does not support FileReader.");
+		            }
+		          } else {
+		            alert("Pls select only images");
+		          }
+		        });
+		      });
+		
+	</script>
+</body>
+</html>

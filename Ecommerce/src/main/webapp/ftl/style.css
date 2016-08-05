@@ -1,0 +1,36 @@
+
+
+#footer{
+	background: rgba(13, 68, 115, 0.86);
+}
+
+#backgroundImg{
+	background: url(761685203-website-e-commerce-app-icon-computer.jpg)
+}
+
+#logo{
+	padding: 20px 20px;
+	opacity: 0.8;
+	float:left;
+	width:200px;
+	height:200px;
+}
+
+#divTwo{
+	height:50px;
+	margin: 20px auto;
+	padding: 10px auto;
+	background: rgba(232, 56, 1, 0.7);
+	padding: 10px 10px;
+}
+
+.search{
+	float:right;
+	padding:
+}
+
+#loginDiv{
+	margin:20px auto;
+}
+
+
